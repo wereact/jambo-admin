@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { PostList, PostShow, PostCreate, PostEdit } from './components/posts';
+// import { PostList, PostShow, PostCreate, PostEdit } from './components/posts';
 import {
 	CourseList,
 	CourseShow,
@@ -30,13 +30,13 @@ class App extends Component {
 				dataProvider={dataProvider}
 				authProvider={authProvider}
 			>
-				<Resource
+				{/* <Resource
 					name="posts"
 					create={PostCreate}
 					show={PostShow}
 					list={PostList}
 					edit={PostEdit}
-				/>
+				/> */}
 
 				<Resource
 					name="courses"
