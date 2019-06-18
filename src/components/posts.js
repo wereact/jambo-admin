@@ -1,6 +1,5 @@
-// in src/posts.js
-import * as React from 'react';
-// tslint:disable-next-line:no-var-requires
+import React from 'react';
+
 import {
 	Datagrid,
 	List,
@@ -27,18 +26,13 @@ const PostFilter = props => (
 	</Filter>
 );
 
-export const PostList = props => (
-	<List {...props} filters={<PostFilter />}>
-		<Datagrid>
-			<TextField source="title" />
-			<RichTextField source="body" />
-			<TextField source="createdate" />
-			<TextField source="lastupdate" />
-			<ShowButton label="" />
-			<EditButton label="" />
-			<DeleteButton label="" redirect={false} />
-		</Datagrid>
-	</List>
+export const PostCreate = props => (
+	<Create {...props}>
+		<SimpleForm>
+			<TextInput source="title" />
+			<RichTextInput source="body" />
+		</SimpleForm>
+	</Create>
 );
 
 export const PostShow = props => (
@@ -53,13 +47,18 @@ export const PostShow = props => (
 	</Show>
 );
 
-export const PostCreate = props => (
-	<Create {...props}>
-		<SimpleForm>
-			<TextInput source="title" />
-			<RichTextInput source="body" />
-		</SimpleForm>
-	</Create>
+export const PostList = props => (
+	<List {...props} filters={<PostFilter />}>
+		<Datagrid>
+			<TextField source="title" />
+			<RichTextField source="body" />
+			<TextField source="createdate" />
+			<TextField source="lastupdate" />
+			<ShowButton label="" />
+			<EditButton label="" />
+			<DeleteButton label="" redirect={false} />
+		</Datagrid>
+	</List>
 );
 
 export const PostEdit = props => (

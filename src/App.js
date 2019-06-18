@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
 import { PostList, PostShow, PostCreate, PostEdit } from './components/posts';
+import {
+	CourseList,
+	CourseShow,
+	CourseCreate,
+	CourseEdit
+} from './components/courses';
 import { Admin, Resource } from 'react-admin';
 import {
 	FirebaseRealTimeSaga,
@@ -12,7 +18,7 @@ import { firebaseConfig as config } from './config/FIREBASE_CONFIG';
 const authProvider = FirebaseAuthProvider(config);
 const dataProvider = FirebaseDataProvider(config);
 const options = {
-	observe: ['posts']
+	observe: ['posts', 'courses']
 };
 const firebaseRealtime = FirebaseRealTimeSaga(dataProvider, options);
 
@@ -26,10 +32,18 @@ class App extends Component {
 			>
 				<Resource
 					name="posts"
-					list={PostList}
-					show={PostShow}
 					create={PostCreate}
+					show={PostShow}
+					list={PostList}
 					edit={PostEdit}
+				/>
+
+				<Resource
+					name="courses"
+					create={CourseCreate}
+					show={CourseShow}
+					list={CourseList}
+					edit={CourseEdit}
 				/>
 			</Admin>
 		);
