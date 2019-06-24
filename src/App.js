@@ -4,9 +4,9 @@ import {
 	CourseShow,
 	CourseCreate,
 	CourseEdit
-} from './components/courses';
-import { NewsList, NewsShow, NewsCreate, NewsEdit } from './components/news';
-import Dashboard from './components/dashboard';
+} from './components/Courses';
+import { NewsList, NewsShow, NewsCreate, NewsEdit } from './components/News';
+import Dashboard from './components/Dashboard';
 import CoursesIcon from '@material-ui/icons/Share';
 import NewsIcon from '@material-ui/icons/NotificationsActive';
 import { Admin, Resource } from 'react-admin';
@@ -20,7 +20,7 @@ import { firebaseConfig as config } from './config/FIREBASE_CONFIG';
 const authProvider = FirebaseAuthProvider(config);
 const dataProvider = FirebaseDataProvider(config);
 const options = {
-	observe: ['posts', 'courses']
+	observe: ['courses', 'news']
 };
 const firebaseRealtime = FirebaseRealTimeSaga(dataProvider, options);
 
