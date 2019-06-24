@@ -6,6 +6,7 @@ import {
 	CourseEdit
 } from './components/courses';
 import { NewsList, NewsShow, NewsCreate, NewsEdit } from './components/news';
+import Dashboard from './components/dashboard';
 import CoursesIcon from '@material-ui/icons/Share';
 import NewsIcon from '@material-ui/icons/NotificationsActive';
 import { Admin, Resource } from 'react-admin';
@@ -27,6 +28,8 @@ class App extends Component {
 	render() {
 		return (
 			<Admin
+				title="Jambo Admin"
+				dashboard={Dashboard}
 				customSagas={[firebaseRealtime]}
 				dataProvider={dataProvider}
 				authProvider={authProvider}
