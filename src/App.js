@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-// import { PostList, PostShow, PostCreate, PostEdit } from './components/posts';
 import {
 	CourseList,
 	CourseShow,
 	CourseCreate,
 	CourseEdit
 } from './components/courses';
+import { NewsList, NewsShow, NewsCreate, NewsEdit } from './components/news';
 import { Admin, Resource } from 'react-admin';
 import {
 	FirebaseRealTimeSaga,
@@ -44,6 +44,14 @@ class App extends Component {
 					show={CourseShow}
 					list={CourseList}
 					edit={CourseEdit}
+				/>
+
+				<Resource
+					name="news"
+					create={NewsCreate}
+					show={NewsShow}
+					list={NewsList}
+					edit={NewsEdit}
 				/>
 			</Admin>
 		);
