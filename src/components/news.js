@@ -55,8 +55,12 @@ export const NewsCreate = props => (
 	</Create>
 );
 
+const NewsTitle = ({ record }) => {
+	return <span>News {record ? `${record.title}` : ''}</span>;
+};
+
 export const NewsShow = props => (
-	<Show {...props}>
+	<Show title={<NewsTitle />} {...props}>
 		<SimpleShowLayout>
 			<TextField source="title" />
 			<DateField source="date" />
@@ -71,7 +75,7 @@ export const NewsShow = props => (
 );
 
 export const NewsList = props => (
-	<List {...props} filters={<NewsFilter />}>
+	<List title="Notícias" filters={<NewsFilter />} {...props}>
 		<Datagrid>
 			<TextField source="title" />
 			<DateField source="date" />

@@ -54,10 +54,13 @@ export const CourseCreate = props => (
 	</Create>
 );
 
+const CourseTitle = ({ record }) => {
+	return <span>Course {record ? `${record.name}` : ''}</span>;
+};
+
 export const CourseShow = props => (
-	<Show {...props}>
+	<Show title={<CourseTitle />} {...props}>
 		<SimpleShowLayout>
-			{/* <TextField source="id" /> */}
 			<TextField source="name" />
 			<ImageField source="imageLink" title="Image" alt="Image" label="Image" />
 			<TextField source="description" />
@@ -72,7 +75,7 @@ export const CourseShow = props => (
 );
 
 export const CourseList = props => (
-	<List {...props} filters={<CourseFilter />}>
+	<List title="Cursos" filters={<CourseFilter />} {...props}>
 		<Datagrid>
 			<TextField source="name" />
 			<TextField source="description" />

@@ -6,13 +6,14 @@ import {
 	CourseEdit
 } from './components/courses';
 import { NewsList, NewsShow, NewsCreate, NewsEdit } from './components/news';
+import CoursesIcon from '@material-ui/icons/Share';
+import NewsIcon from '@material-ui/icons/NotificationsActive';
 import { Admin, Resource } from 'react-admin';
 import {
 	FirebaseRealTimeSaga,
 	FirebaseDataProvider,
 	FirebaseAuthProvider
 } from 'react-admin-firebase';
-
 import { firebaseConfig as config } from './config/FIREBASE_CONFIG';
 
 const authProvider = FirebaseAuthProvider(config);
@@ -30,20 +31,14 @@ class App extends Component {
 				dataProvider={dataProvider}
 				authProvider={authProvider}
 			>
-				{/* <Resource
-					name="posts"
-					create={PostCreate}
-					show={PostShow}
-					list={PostList}
-					edit={PostEdit}
-				/> */}
-
 				<Resource
 					name="courses"
 					create={CourseCreate}
 					show={CourseShow}
 					list={CourseList}
 					edit={CourseEdit}
+					options={{ label: 'Cursos' }}
+					icon={CoursesIcon}
 				/>
 
 				<Resource
@@ -52,6 +47,8 @@ class App extends Component {
 					show={NewsShow}
 					list={NewsList}
 					edit={NewsEdit}
+					options={{ label: 'Notícias' }}
+					icon={NewsIcon}
 				/>
 			</Admin>
 		);
